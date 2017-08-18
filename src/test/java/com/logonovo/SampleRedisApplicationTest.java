@@ -1,7 +1,6 @@
 package com.logonovo;
 
-import com.logonovo.user.User;
-import javafx.application.Application;
+import com.logonovo.entity.UserEntity;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -27,8 +26,8 @@ public class SampleRedisApplicationTest {
         stringRedisTemplate.opsForValue().set("aaa", "111");
         Assert.assertEquals("111", stringRedisTemplate.opsForValue().get("aaa"));
 
-        User user = new User("logo",1);
-        User u = redisKeyValueTemplate.findById(1,User.class);
-        Assert.assertEquals("logo",u.getUserName());
+        UserEntity user = new UserEntity();
+        UserEntity u = redisKeyValueTemplate.findById(1,UserEntity.class);
+        Assert.assertEquals("logo",u.getName());
     }
 }
